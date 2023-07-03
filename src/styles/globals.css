@@ -2,26 +2,250 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  font-family: "Roboto", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+header {
+  color: white;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.212);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.281);
+  background: rgb(19, 179, 242);
+  background: linear-gradient(
+    180deg,
+    rgba(19, 179, 242, 1) 0%,
+    rgb(167, 218, 248) 100%
+  );
+  background-size: cover;
+  position: fixed;
+  z-index: 2;
+}
+body {
+  background-color: white;
+}
+
+.main-container {
+  overflow-x: hidden;
+}
+
+.fundo {
+  background-image: url("../images/fundo.png");
+  background-size: cover;
+
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+.main {
+  @apply flex items-center justify-center text-center  flex-col pb-20 pt-40 sm:px-10 px-0 relative;
+
+  background: linear-gradient(to bottom, #60cbf550 0%, #33c5ff96 100%);
+}
+
+.div_video {
+  @apply w-full  mx-auto;
+  max-width: 700px;
+  min-width: 20%;
+}
+
+.container_video {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  padding-top: 56.25%;
+}
+
+.responsive-iframe {
+  @apply absolute top-0 left-0 right-0 bottom-0 w-full rounded-2xl h-full;
+}
+
+.sobre {
+  background: linear-gradient(to bottom, #ffffff 0%, #eeeded 100%);
+}
+
+.sobre_img {
+  @apply rounded-2xl max-w-full mx-auto;
+  outline: 4px solid #b3e9ff96;
+  outline-offset: -2px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.274);
+
+  min-width: 150px;
+}
+
+@media (min-width: 768px) {
+  .sobre_img {
+    min-width: 450px;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
+@media (max-width: 480px) {
+  .sobre_img {
+    width: 450px;
+  }
+}
+
+.contato {
+  @apply flex mt-4  items-center  justify-evenly;
+}
+
+.contatoCard {
+  @apply flex items-center mx-5 md:mx-5 flex-col w-1/2  justify-center  py-4  mt-0;
+
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.contatoCard:hover {
+  transform: scale(1.03);
+}
+
+.contatoImg {
+  transition: 0.5s;
+}
+
+.contatoCard:hover .contatoImg {
+  transform: scale(1.08);
+  transform: rotateX("30");
+}
+
+.cardSobre {
+  @apply flex-col   w-full lg:w-3/4 mb-3 lg:mt-0 mt-12 md:px-6 px-3 py-8 flex rounded-xl;
+  word-wrap: break-word;
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    180deg,
+    rgba(136, 220, 253, 0.411) 0%,
+    rgba(51, 197, 255, 0.425) 100%
+  );
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.144);
+  backdrop-filter: blur(3.8px);
+  -webkit-backdrop-filter: blur(3.8px);
+}
+
+.relatos {
+  background: linear-gradient(180deg, #60cbf550 0%, #33c5ff96 100%);
+}
+
+.relatoIMG {
+  @apply rounded-lg mb-8 max-w-full md:mb-0 border w-1/2;
+  outline: 4px solid #ffffff96;
+  outline-offset: -2px;
+  aspect-ratio: 1/1;
+  height: 400px;
+  width: 400px;
+  min-width: 350px;
+}
+
+@media (min-width: 768px) {
+  .relatoIMG {
+    min-width: 430px;
+  }
+}
+
+@media (min-width: 350px) {
+  .relatoIMG {
+    width: 230px;
+  }
+}
+
+.relatoP {
+  @apply flex flex-col py-5 sm:px-5 px-2 items-center rounded-b-md  max-w-5xl sm:ml-5  mx-2 text-justify;
+
+  background: rgb(235, 247, 252);
+  background: linear-gradient(
+    90deg,
+    rgb(252, 253, 255) 0%,
+    rgb(246, 253, 255) 50%,
+    rgb(234, 249, 255) 100%
+  );
+}
+
+.relatoText {
+  position: relative;
+}
+
+.relatoText > h2 {
+  @apply mx-2 sm:ml-5  py-2 text-xl font-semibold text-white max-w-5xl mt-0 lg:mt-5;
+  /* flex-col   w-full lg:w-3/4 mb-3 lg:mt-0 mt-12 md:px-6 px-3 py-8 flex rounded-xl */
+  background: rgb(19, 179, 242);
+  background: linear-gradient(
+    180deg,
+    rgba(19, 179, 242, 1) 0%,
+    rgb(167, 218, 248) 100%
+  );
+}
+
+.relato {
+  @apply flex md:flex-row md:items-start flex-col items-center my-10;
+}
+
+.depoimentos > h1 {
+  background: url("../images/aspas.png");
+  background-size: 100%;
+  background-position: center center;
+}
+
+.depoimento {
+  @apply cursor-default flex  py-5 px-3 mx-0 md:mx-32 sm:mx-10  mb-6 shadow-xl bg-gray-50 rounded-sm   flex-col  items-center justify-center duration-300;
+}
+
+.depoimento:hover {
+  transform: scale(1.02);
+}
+
+.bubble {
+  position: relative;
+  font-size: 18px;
+  line-height: 24px;
+  width: 100%;
+
+  border-radius: 40px;
+  text-align: center;
+  color: #000;
+}
+
+.imageContainer {
+  height: auto;
+}
+
+.navLink {
+  cursor: pointer;
+}
+
+/*                           WAVE                                                  */
+
+.wave1 {
+  background: linear-gradient(to bottom, transparent 50%, #fff 100%);
+}
+
+.wave2 {
+  background-color: #60cbf550;
+}
+
+/*                     BUTTON                       */
+
+.btn {
+  @apply text-white px-5 md:text-2xl text-lg  border md:mx-2 mx-0 text-center font-semibold duration-500 my-6 rounded-xl;
+  background-color: #0ab0fd;
+  width: 500px;
+  height: 60px;
+}
+
+@media (max-width: 600px) {
+  .btn {
+    width: 100%;
+    height: 80px;
+  }
+}
+
+@media (max-width: 200px) {
+  .btn {
+    width: 100%;
+    height: 150px;
+  }
+}
+
+.btn:hover {
+  background-color: #71d0fc;
+
+  color: #ffffff;
 }
